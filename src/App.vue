@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="weather-box" v-if="typeof weather.main != 'undefined'">
-        <div class="temp">{{ Math.round(weather.main.temp) }}°</div>
+        <div class="temp">{{ Math.round(weather.main.temp) }}°C</div>
       </div>
       <FiveDay :weatherFive="weatherFive" />
     </main>
@@ -30,6 +30,8 @@
 <script>
 import axios from "axios";
 import FiveDay from "./components/FiveDay.vue";
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
   name: "App",
@@ -41,7 +43,7 @@ export default {
       api_key: "2bbd84d695f75e90260a321f5b80b8b5",
       url_base: "https://api.openweathermap.org/data/2.5/",
       url_five: "https://api.openweathermap.org/data/2.5/forecast?q=",
-      query: "",
+      query: "london",
       weather: {},
       weatherFive: {},
     };

@@ -55,15 +55,12 @@ export default {
           const response2 = await axios.get(
             `${this.url_five}${this.query}&appid=${this.api_key}`
           );
-          console.log(response2.data.list[0].visibility)
-          this.weatherFive = response2.data;
+          console.log(response2.data)
+          this.weatherFive = response2.data.list;
         } catch (e) {
           console.log(e);
         }
       }
-    },
-    setResults(results) {
-      this.weather = results;
     },
     dateBuilder() {
       let d = new Date();

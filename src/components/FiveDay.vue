@@ -1,6 +1,6 @@
 <template>
-<div>
-    <h3>{{weatherFive.list[0].visibility}}</h3>
+<div :key="weather.visibility" v-for="weather in weatherFive">
+    <h3>{{weather.visibility}}</h3>
 </div>
 </template>
 

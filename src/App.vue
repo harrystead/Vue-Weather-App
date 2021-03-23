@@ -57,8 +57,12 @@ export default {
           const response2 = await axios.get(
             `${this.url_five}${this.query}&appid=${this.api_key}`
           );
-          console.log(response2.data)
-          this.weatherFive = response2.data.list;
+          console.log(response2.data.list)
+          const hello = response2.data.list;
+          const filterList = hello.filter((elem) => {
+            return elem.dt_txt.includes("15:00:00")
+          })
+          this.weatherFive = filterList;
         } catch (e) {
           console.log(e);
         }

@@ -11,8 +11,8 @@
     </div>
     <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
       <div class="location-box">
+        <Icons :weather="weather"/> 
         <div class="location">
-          <div class="weather">{{ weather.weather[0].main }}</div>
           {{ weather.name }}, {{ weather.sys.country }}
         </div>
         <div class="date">{{ dateBuilder() }}</div>
@@ -28,6 +28,7 @@
 <script>
 import axios from "axios";
 import FiveDay from "./components/FiveDay.vue";
+import Icons from "./components/Icons";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
@@ -35,6 +36,7 @@ export default {
   name: "App",
   components: {
     FiveDay,
+    Icons,
   },
   data() {
     return {
@@ -123,7 +125,7 @@ body {
 
 input {
   position: absolute;
-  top: 16%;
+  top: 14%;
   left: 37%;
   width: 400px;
   height: 45px;
@@ -136,8 +138,6 @@ input {
 
 .weather-wrap {
   position: relative;
-  top: 3.5rem;
-  left: 0%;
 }
 
 .location-box,
@@ -155,5 +155,4 @@ input {
 .location {
   font-size: 30px;
 }
-
 </style>

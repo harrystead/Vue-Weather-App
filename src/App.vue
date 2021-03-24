@@ -132,7 +132,7 @@ input {
   border-radius: 30px;
   border: none;
   padding: 10px 40px;
-  box-shadow: 5px 2px 0px rgb(179, 179, 179);
+  box-shadow: 0px 3px 0px #777;
   font-size: 17px;
 }
 

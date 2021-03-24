@@ -41,15 +41,14 @@ export default {
       api_key: "2bbd84d695f75e90260a321f5b80b8b5",
       url_base: "https://api.openweathermap.org/data/2.5/",
       url_five: "https://api.openweathermap.org/data/2.5/forecast?q=",
-      query: "",
+      query: "London",
       weather: {},
       weatherFive: {},
     };
   },
   methods: {
-    async fetchWeather(e) {
-      if (e.key == "Enter") {
-        try {
+    async fetch(){
+       try {
           const response1 = await axios.get(
             `${this.url_base}weather?q=${this.query}&units=metric&APPID=${this.api_key}`
           );
@@ -66,6 +65,10 @@ export default {
         } catch (e) {
           console.log(e);
         }
+    },
+    async fetchWeather(e) {
+      if (e.key == "Enter") {
+        this.fetch();
       }
     },
     dateBuilder() {
@@ -100,6 +103,9 @@ export default {
       return `${day} ${date} ${month} ${year}`;
     },
   },
+    mounted(){
+    this.fetch()
+  }
 };
 </script>
 

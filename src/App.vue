@@ -17,9 +17,9 @@
         </div>
         <div class="date">{{ dateBuilder() }}</div>
       </div>
-    </div>
-    <div class="weather-box" v-if="typeof weather.main != 'undefined'">
-      <div class="temp">{{ Math.round(weather.main.temp) }}°C</div>
+      <div class="weather-box" v-if="typeof weather.main != 'undefined'">
+        <div class="temp">{{ Math.round(weather.main.temp) }}°C</div>
+      </div>
     </div>
     <FiveDay :weatherFive="weatherFive" />
   </div>
@@ -47,24 +47,24 @@ export default {
     };
   },
   methods: {
-    async fetch(){
-       try {
-          const response1 = await axios.get(
-            `${this.url_base}weather?q=${this.query}&units=metric&APPID=${this.api_key}`
-          );
-          this.weather = response1.data;
-          const response2 = await axios.get(
-            `${this.url_five}${this.query}&appid=${this.api_key}`
-          );
-          console.log(response2.data.list);
-          const hello = response2.data.list;
-          const filterList = hello.filter((elem) => {
-            return elem.dt_txt.includes("15:00:00");
-          });
-          this.weatherFive = filterList;
-        } catch (e) {
-          console.log(e);
-        }
+    async fetch() {
+      try {
+        const response1 = await axios.get(
+          `${this.url_base}weather?q=${this.query}&units=metric&APPID=${this.api_key}`
+        );
+        this.weather = response1.data;
+        const response2 = await axios.get(
+          `${this.url_five}${this.query}&appid=${this.api_key}`
+        );
+        console.log(response2.data.list);
+        const hello = response2.data.list;
+        const filterList = hello.filter((elem) => {
+          return elem.dt_txt.includes("15:00:00");
+        });
+        this.weatherFive = filterList;
+      } catch (e) {
+        console.log(e);
+      }
     },
     async fetchWeather(e) {
       if (e.key == "Enter") {
@@ -103,9 +103,9 @@ export default {
       return `${day} ${date} ${month} ${year}`;
     },
   },
-    mounted(){
-    this.fetch()
-  }
+  mounted() {
+    this.fetch();
+  },
 };
 </script>
 
@@ -122,23 +122,38 @@ body {
 }
 
 input {
-    position: absolute;
-    top: 20%;
-    left: 37%;
-    width: 400px;
-    height: 45px;
-    border-radius: 30px;
-    border: none;
-    padding: 10px 40px;
-    box-shadow: 10px 6px -6px #777;
-    font-size: 17px;
+  position: absolute;
+  top: 16%;
+  left: 37%;
+  width: 400px;
+  height: 45px;
+  border-radius: 30px;
+  border: none;
+  padding: 10px 40px;
+  box-shadow: 10px 6px -6px #777;
+  font-size: 17px;
 }
+
+.weather-wrap {
+  position: relative;
+  top: 3.5rem;
+  left: 0%;
+}
+
 .location-box,
 .weather-box {
   text-align: center;
+}
+.date {
+  font-size: 40px;
 }
 .temp {
   font-weight: bold;
   font-size: 80px;
 }
+
+.location {
+  font-size: 30px;
+}
+
 </style>

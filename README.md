@@ -1,24 +1,7 @@
-# vue-weather-app
+### Vue Weather Dashboard
 
-## Project setup
-```
-npm install
-```
+A Vue.js project which allows users to search for a city and display the weather report for today and the five day forecast.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Live site: https://vue-weather-app-black.vercel.app/
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![image](https://user-images.githubusercontent.com/69797257/112302697-44f63780-8c93-11eb-96bb-37166435b0de.png)
